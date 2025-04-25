@@ -1,0 +1,4 @@
+- \src\AutomatedTests.Tests\AutomatedTests.Tests.csproj
+- \src\AutomatedTests.Api\AutomatedTests.Api.csproj
+- \src\AutomatedTests.LibraryA\AutomatedTests.LibraryA\AutomatedTests.LibraryA.csproj
+- \src\AutomatedTests.LibraryB\AutomatedTests.LibraryB\AutomatedTests.LibraryB.csproj

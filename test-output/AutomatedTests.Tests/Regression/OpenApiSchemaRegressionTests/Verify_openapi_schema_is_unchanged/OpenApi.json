@@ -1,0 +1,215 @@
+{
+  "x-generator": "NSwag v14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "My Title",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/Test/SingleReturnValue": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "Test_GetSingleReturnValue",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DtoClass"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Test/GenericEnumerableReturnValue": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "Test_GetGenericEnumerableReturnValue",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/DtoClass"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Test/ArrayReturnValue": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "Test_GetArrayReturnValue",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/DtoClass"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Test/SingleInputValue": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "Test_GetSingleInputValue",
+        "requestBody": {
+          "x-name": "param",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoClass"
+              }
+            }
+          },
+          "x-position": 1
+        },
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/Test/GenericEnumerableInputValue": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "Test_GetGenericEnumerableInputValue",
+        "requestBody": {
+          "x-name": "param",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DtoClass"
+                }
+              }
+            }
+          },
+          "x-position": 1
+        },
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/Test/ArrayInputValue": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "Test_GetArrayInputValue",
+        "requestBody": {
+          "x-name": "param",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DtoClass"
+                }
+              }
+            }
+          },
+          "x-position": 1
+        },
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DtoClass": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DtoClassNested": {
+            "$ref": "#/components/schemas/DtoClassNested"
+          }
+        }
+      },
+      "DtoClassNested": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DtoClassNestedTwice": {
+            "$ref": "#/components/schemas/DtoClassNestedTwice"
+          }
+        }
+      },
+      "DtoClassNestedTwice": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DtoEnum": {
+            "$ref": "#/components/schemas/DtoEnum"
+          },
+          "DtoEnumWithoutDefault": {
+            "$ref": "#/components/schemas/DtoEnumWithoutDefault"
+          }
+        }
+      },
+      "DtoEnum": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Zero"
+        ],
+        "enum": [
+          0
+        ]
+      },
+      "DtoEnumWithoutDefault": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "One"
+        ],
+        "enum": [
+          1
+        ]
+      }
+    }
+  }
+}
