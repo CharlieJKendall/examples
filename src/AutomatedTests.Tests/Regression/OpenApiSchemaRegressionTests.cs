@@ -1,4 +1,5 @@
-﻿using NSwag.Generation.WebApi;
+﻿using NSwag.CodeGeneration.TypeScript;
+using NSwag.Generation.WebApi;
 
 namespace AutomatedTests.Tests.Regression;
 
@@ -11,10 +12,21 @@ internal class OpenApiSchemaRegressionTests
         var generator = new WebApiOpenApiDocumentGenerator(new WebApiOpenApiDocumentGeneratorSettings());
         var openApiDocument = await generator.GenerateForControllersAsync(controllersTypes);
         string filePath = TestHelpers.GetTestOutputDirectoryPathForCurrentExecutingTest("OpenApi.json");
+        var tsClientGenerator = new TypeScriptClientGenerator(openApiDocument, new TypeScriptClientGeneratorSettings());
+        var clients = tsClientGenerator.GenerateFile();
 
-        await TestHelpers.CompareToExistingFileAndOverwriteAsync(
-            latest: openApiDocument.ToJson(),
-            filePath: filePath,
-            failMessage: "OpenApi schema has changed, automatically regenerating");
+
+        Assert.Multiple(async () =>
+        {
+            await TestHelpers.CompareToExistingFileAndOverwriteAsync(
+                latest: openApiDocument.ToJson(),
+                filePath: filePath,
+                failMessage: "OpenApi schema has changed, automatically regenerating");
+
+            await TestHelpers.CompareToExistingFileAndOverwriteAsync(
+                latest: clients,
+                filePath: TestHelpers.GetTestOutputDirectoryPathForCurrentExecutingTest("ApiClients.ts"),
+                failMessage: "ApiClients.ts file has changed, automatically regenerating");
+        });
     }
 }

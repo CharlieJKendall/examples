@@ -16,6 +16,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NSwag.CodeGeneration.TypeScript" Version="14.3.0" />
     <PackageReference Include="NSwag.Generation" Version="14.3.0" />
     <PackageReference Include="NSwag.Generation.WebApi" Version="14.3.0" />
     <PackageReference Include="NUnit" Version="3.14.0" />

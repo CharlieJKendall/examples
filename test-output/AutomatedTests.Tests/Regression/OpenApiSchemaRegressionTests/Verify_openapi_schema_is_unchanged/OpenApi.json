@@ -185,8 +185,20 @@
           "DtoEnum": {
             "$ref": "#/components/schemas/DtoEnum"
           },
+          "DtoNullableEnum": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DtoEnum"
+              }
+            ]
+          },
           "DtoEnumWithoutDefault": {
             "$ref": "#/components/schemas/DtoEnumWithoutDefault"
+          },
+          "DtoNullableString": {
+            "type": "string",
+            "nullable": true
           }
         }
       },

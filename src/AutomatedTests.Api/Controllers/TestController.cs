@@ -36,7 +36,9 @@ public class DtoClassNested
 public class DtoClassNestedTwice
 {
     public DtoEnum DtoEnum { get; set; }
+    public DtoEnum? DtoNullableEnum { get; set; }
     public DtoEnumWithoutDefault DtoEnumWithoutDefault { get; set; }
+    public string? DtoNullableString { get; set; }
 }
 
 public enum DtoEnum
